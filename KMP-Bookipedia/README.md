@@ -1,14 +1,65 @@
-This is a Kotlin Multiplatform project targeting Android, iOS.
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
-
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+Project Structure — KMP-Bookipedia
 
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+KMP-Bookipedia/
+│
+├── composeApp/
+│   ├── androidMain/
+│   │   ├── kotlin/
+│   │   │   └── org.ajay.bookipedia/
+│   │   │       ├── book.data.database/
+│   │   │       ├── di/
+│   │   │       ├── BookApplication.kt
+│   │   │       └── MainActivity.kt
+│   │   └── res/
+│   │       └── AndroidManifest.xml
+│   │
+│   ├── commonMain/
+│   │   ├── kotlin/
+│   │   │   └── org.ajay.bookipedia/
+│   │   │       ├── app/
+│   │   │       ├── book/
+│   │   │       │   ├── data/
+│   │   │       │   │   ├── database/
+│   │   │       │   │   ├── dto/
+│   │   │       │   │   ├── mappers/
+│   │   │       │   │   ├── network/
+│   │   │       │   │   └── repository/
+│   │   │       │   ├── domain/
+│   │   │       │   │   ├── Book.kt
+│   │   │       │   │   └── BookRepository.kt
+│   │   │       │   └── presentation/
+│   │   │       │       ├── book_detail/
+│   │   │       │       ├── book_list/
+│   │   │       │       └── SelectedBookViewModel.kt
+│   │   │       ├── core/
+│   │   │       │   ├── data/
+│   │   │       │   ├── domain/
+│   │   │       │   └── presentation/
+│   │   │       └── di/
+│   │   └── composeResources/
+│
+│   ├── iosMain/
+│   │   ├── kotlin/
+│   │   │   └── org.ajay.bookipedia/
+│   │   │       ├── book.data.database/
+│   │   │       ├── di/
+│   │   │       └── MainViewController.kt
+│
+├── iosApp/
+│   ├── Configuration/
+│   ├── iosApp/
+│   │   ├── Assets.xcassets/
+│   │   ├── Preview Content/
+│   │   ├── ContentView.swift
+│   │   ├── Info.plist
+│   │   └── IOSApp.swift
+│   └── iosApp.xcodeproj/
+│
+├── build.gradle.kts
+├── settings.gradle.kts
+├── gradle.properties
+├── local.properties
+├── README.md
+└── .gitignore
